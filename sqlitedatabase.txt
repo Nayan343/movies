@@ -1,0 +1,5 @@
+sqlite> CREATE TABLE movies(id integer PRIMARY KEY, name TEXT, actor TEXT, actress TEXT, director TEXT, year integer);
+sqlite> INSERT INTO movies VALUES(1, "Pushpa", 'Allu Arjun', 'Rashmika Mandanna', 'Sukumar Bandreddi', 2021);
+sqlite> SELECT * FROM movies;
+1|Pushpa|Allu Arjun|Rashmika Mandanna|Sukumar Bandreddi|2021
+sqlite>
