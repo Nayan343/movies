@@ -1,5 +1,18 @@
-sqlite> CREATE TABLE movies(id integer PRIMARY KEY, name TEXT, actor TEXT, actress TEXT, director TEXT, year integer);
-sqlite> INSERT INTO movies VALUES(1, "Pushpa", 'Allu Arjun', 'Rashmika Mandanna', 'Sukumar Bandreddi', 2021);
-sqlite> SELECT * FROM movies;
-1|Pushpa|Allu Arjun|Rashmika Mandanna|Sukumar Bandreddi|2021
-sqlite>
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+print "Opened database successfully";
+
+conn.execute('''CREATE TABLE movies
+         (ID INT PRIMARY KEY     NOT NULL,
+         NAME           TEXT    NOT NULL,
+         ACTOR           TEXT    NOT NULL,
+         ACTRESS        TEXT      NOT NULL,
+         DIRECTOR        TEXT,
+         YEAR           DATE);''')
+print "Table created successfully";
+
+conn.execute("INSERT INTO movies (ID,NAME,ACTOR,ACTRESS,DIRECTOR,YEAR) \
+      VALUES (1, "Pushpa", 'Allu Arjun', 'Rashmika Mandanna', 'Sukumar Bandreddi', 2021 )");
+cursor = conn.execute("SELECT * FROM movies")
+print(cursor)
